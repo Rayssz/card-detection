@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.custom-file-label::after {
+    content: "Choose file";
+}
+
+.uploaded-image img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+#camera {
+    margin-top: 20px;
+}
+
+/* Add styles for big prediction result */
+.big-result {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Add color styles for different prediction results */
+.clubs {
+    color: #007bff;
+}
+
+.diamonds {
+    color: #28a745;
+}
+
+.hearts {
+    color: #dc3545;
+}
+
+.spades {
+    color: #ffc107;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Shape Detector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title">Upload a Playing Card</h2>
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                <div class="custom-file mb-3">
+                    <input type="file" name="file" class="custom-file-input" id="fileInput">
+                    <label class="custom-file-label" for="fileInput">Choose file</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+            <div class="uploaded-image mt-3">
+                {% if img_path %}
+                    <img src="{{ url_for('send_file', filename=img_path) }}" class="img-fluid" alt="Uploaded Image">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <h2 class="card-title">Or Use Your Camera</h2>
+            <a href="{{ url_for('camera') }}" class="btn btn-secondary">Open Camera</a>
+        </div>
+
+        {% if prediction %}
+        <div class="card mt-4">
+            <h2 class="card-title">Prediction</h2>
+            <p class="prediction-result big-result">Prediction: <span class="{% if prediction == 'clubs' %}clubs{% elif prediction == 'diamonds' %}diamonds{% elif prediction == 'hearts' %}hearts{% else %}spades{% endif %}">{{ prediction }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
